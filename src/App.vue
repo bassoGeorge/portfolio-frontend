@@ -17,6 +17,8 @@
 
 </script>
 <style lang="stylus">
+	@require '~styles/_utils.styl'
+
 	#nav
 		padding 30px
 		a

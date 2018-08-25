@@ -1,0 +1,70 @@
+/***************************************************************************/
+/*                             Site wide styles                            */
+/***************************************************************************/
+*
+  box-sizing: border-box;
+
+html
+  height: 100%
+  font-size: 62.5%
+
+body
+  font-size: 1.6rem
+  height: 100%
+  padding: 1rem
+  padding-bottom: "calc(%s + 1rem)" % $navHeight-mobile // On account of the navigation item
+  +on-tablet-up()
+    padding-bottom: "calc(%s + 1rem)" % $navHeight-tablet
+
+$borderRadius = 2px
+.bordered
+  border: 1px solid
+  border-radius: $borderRadius
+
+button
+  background: transparent
+  cursor: pointer
+  border: none
+
+.button
+  @extend .bordered
+  padding: 5px 25px
+  font-size: 2.2rem
+  transition: all 300ms ease-in-out
+
+ul.horizontal-flat-list
+  list-style-type: none
+  padding-left: 0
+  li
+    display: inline-block
+    margin-left: 3rem;
+
+  li:first-child
+    margin-left: 0
+
+.centered-container
+  height: 100%
+  width: 100%
+  display: flex
+  padding: 0 20px
+  overflow-x: auto
+
+  // This is to avoid the missing tops & bottoms when the flex item is larger
+  // on using justify-content + align-items
+  & > *
+    margin: auto
+
+  +on-desktop-up()
+    padding: 0 120px
+
+.at-ends-container
+  display: flex
+  justify-content: space-between
+
+svg
+  height: 100%
+  .shadable-fill
+    transition: fill 300ms ease-in-out;
+
+.invisible
+  visibility: hidden
