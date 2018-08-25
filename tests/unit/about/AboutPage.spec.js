@@ -1,6 +1,6 @@
 import {expect} from 'chai'
 import {shallowMount} from '@vue/test-utils'
-import AboutMePage from '../../../src/modules/about-me/AboutMePage'
+import AboutMePage from '../../../src/modules/about/AboutPage'
 
 describe('AboutMePage.vue', () => {
 	it('renders About Me page message', () => {
