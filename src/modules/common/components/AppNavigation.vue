@@ -1,0 +1,212 @@
+<template>
+	<nav class="bg-light"
+					:class="{'navigation--quick-links-on': showQuickLinksOnMobile}">
+
+		<ul class="navigation--pages horizontal-flat-list">
+			<li v-for="page in pages"
+							class="navigation--pages--item"
+							:key="page.name">
+
+				<router-link
+								:id="`page-nav-link-${page.name}`"
+								:to="page.path"
+								:exact="page.exact"
+								class="svg-color-lighter svg-color-primary-on-hover"
+								active-class="page-link-active svg-active-acc">
+
+					<div class="icon" v-html="page.img"></div>
+
+					<span>{{page.title}}</span>
+
+				</router-link>
+			</li>
+		</ul>
+
+	</nav>
+</template>
+<script>
+	import {ROUTES} from '../constants'
+
+	export default {
+		name: 'app-navigation',
+
+		data: () => ({
+			pages                 : [
+				{
+					...ROUTES.HOME,
+					exact: true,
+					title: "Home",
+					img  : require('../../../assets/home.svg?inline')
+				},
+				{
+					...ROUTES.ABOUT,
+					title: "About Me",
+					img  : require('../../../assets/about.svg?inline')
+				},
+				{
+					...ROUTES.WORK,
+					title: "My Work",
+					img  : require('../../../assets/work.svg?inline')
+				},
+				{
+					...ROUTES.SKILLS,
+					title: "Skills",
+					img  : require('../../../assets/skills.svg?inline')
+				},
+				{
+					...ROUTES.CONTACT,
+					title: "Contact Me",
+					img  : require('../../../assets/contact.svg?inline')
+				},
+			],
+			showQuickLinksOnMobile: false
+		})
+	}
+</script>
+<style lang="stylus" scoped>
+	@require "~styles/_utils"
+
+	nav
+		position: fixed
+		bottom: 0
+		left: 0
+		width: 100%
+		height: $navHeight-mobile
+		padding: 0 1rem
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+		.icon
+			height: 1.2em
+
+		+on-tablet-up()
+			.icon
+				height: 1.4em
+
+		a
+			display: flex
+			align-items: center
+			font-size: 1.5rem
+			text-decoration: none
+			span
+				white-space: nowrap
+				margin-left: 0.6em
+				position: relative
+
+			+on-tablet-up()
+				font-size: 2.2rem
+
+		+on-tablet-up()
+			height: $navHeight-tablet
+
+		+on-desktop-up()
+			padding: 0 5rem
+
+	.navigation--pages
+		display: flex
+		flex-grow: 1
+		justify-content: space-between
+		+on-desktop-up()
+			display: initial
+
+		li
+			margin-left: 0
+
+		li.navigation--pages--item
+			overflow: hidden
+
+			&:first-child a
+				margin-left: 0
+
+			a
+				position: relative
+				transition: all 350ms ease-in-out
+
+				span
+					display: none
+
+				+on-desktop-up()
+					margin-left: 3rem
+					width: 1.8em
+
+					span
+						display: initial
+
+					&.page-link-active
+						width: 5em
+
+			+on-desktop-up()
+				padding-top: 0.4rem
+				padding-bottom: 0.4rem
+				#page-nav-link-work.page-link-active
+					width: 6.5em
+
+				#page-nav-link-contact.page-link-active
+					width: 8em
+
+	// Quick Links list
+	.navigation--quick-links
+		display: none
+		+on-desktop-up()
+			display: block
+
+		li
+			margin-left: 0
+			padding: 0 1em
+			position: relative
+		li:
+		:after
+			$height = 50%
+			content: ''
+			display: block
+			height: $height
+			width: 2px
+			background-color: white
+			position: absolute
+			right: 0
+			top: ((100% - $height) / 2)
+		li:first-child
+			padding-left: 0
+		li:last-child
+			padding-right: 0
+		li:last-child::after
+			display: none
+
+		a
+			transition: color 300ms ease-in-out
+			.icon
+				display: flex
+				justify-content: center
+
+	// In  mobile, navigation is toggled
+	.navigation--quick-links-on
+		.navigation--pages
+			order: 1 // The navigation pages list now just has the cross icon and it should move to the right
+			flex-grow: 0
+			li.navigation--pages--item
+				display: none
+				+on-desktop-up()
+					display: initial
+
+		.navigation--quick-links
+			display: block
+
+	.navigation--quick-links-toggle-btn
+		display: flex
+		align-items: center
+
+		button
+			padding: 0
+
+		.icon
+			height: 0.85em
+
+		+on-tablet-up()
+			.icon
+				height: 1.2em
+
+		+on-desktop-up()
+			display: none
+
+</style>

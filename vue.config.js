@@ -55,30 +55,32 @@ module.exports  = {
 		.end()
 		.end()
 
-		config.plugin('mini-css-extract')
-		.use(MiniCssExtractPlugin, [{
-			filename     : "[name].css",
-			chunkFilename: "[id].css"
-		}])
 
-		const normal = config.module.rule('stylus').oneOfs.get('normal')
-		config.module.rule('stylus').oneOfs.delete('normal')
-
-		const
-			cssLoader     = normal.uses.get('css-loader'),
-			postCssLoader = normal.uses.get('postcss-loader'),
-			sassLoader    = normal.uses.get('stylus-loader')
-
-		normal.uses.clear()
-
-		normal.use('mini-css-extract')
-		.loader(MiniCssExtractPlugin.loader)
-
-		normal.uses.set('css-loader', cssLoader)
-		normal.uses.set('postcss-loader', postCssLoader)
-		normal.uses.set('stylus-loader', sassLoader)
-
-		config.module.rule('stylus').oneOfs.set('normal', normal)
+		/** Turns out, we don't need this, in production, the css is extracted already :/ */
+		//config.plugin('mini-css-extract')
+		//.use(MiniCssExtractPlugin, [{
+		//	filename     : "[name].css",
+		//	chunkFilename: "[id].css"
+		//}])
+		//
+		//const normal = config.module.rule('stylus').oneOfs.get('normal')
+		//config.module.rule('stylus').oneOfs.delete('normal')
+		//
+		//const
+		//	cssLoader     = normal.uses.get('css-loader'),
+		//	postCssLoader = normal.uses.get('postcss-loader'),
+		//	sassLoader    = normal.uses.get('stylus-loader')
+		//
+		//normal.uses.clear()
+		//
+		//normal.use('mini-css-extract')
+		//.loader(MiniCssExtractPlugin.loader)
+		//
+		//normal.uses.set('css-loader', cssLoader)
+		//normal.uses.set('postcss-loader', postCssLoader)
+		//normal.uses.set('stylus-loader', sassLoader)
+		//
+		//config.module.rule('stylus').oneOfs.set('normal', normal)
 
 	}
 }
