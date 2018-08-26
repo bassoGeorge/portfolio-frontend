@@ -5,7 +5,7 @@
 	</div>
 </template>
 <script>
-	import AppNavigation from './modules/common/components/AppNavigation'
+	import AppNavigation from './modules/common/components/navigation/AppNavigation'
 
 	require("./styles/App.styl")
 
