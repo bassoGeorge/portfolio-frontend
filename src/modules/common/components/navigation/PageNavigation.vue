@@ -19,6 +19,7 @@
 
 			</router-link>
 		</li>
+		<slot></slot>
 	</ul>
 </template>
 <script>

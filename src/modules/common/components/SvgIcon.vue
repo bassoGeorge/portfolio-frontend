@@ -7,3 +7,7 @@
 		props: ['svg']
 	}
 </script>
+<style lang="stylus" scoped>
+	.icon
+		display: block;
+</style>

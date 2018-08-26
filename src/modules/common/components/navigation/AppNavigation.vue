@@ -4,7 +4,11 @@
 
 		<page-navigation
 						:pages="pages"
-						:mobile-quick-links-mode="showQuickLinksOnMobile"/>
+						:mobile-quick-links-mode="showQuickLinksOnMobile">
+
+			<quick-links-toggle-btn :is-toggled-on="showQuickLinksOnMobile" @click="toggleQuickLinks"/>
+
+		</page-navigation>
 
 		<quick-links :quick-links="quickLinks"/>
 
@@ -14,10 +18,11 @@
 	import {ROUTES} from '../../constants'
 	import PageNavigation from './PageNavigation'
 	import QuickLinks from './QuickLinks'
+	import QuickLinksToggleBtn from './QuickLinksToggleBtn'
 
 	export default {
 		name      : 'app-navigation',
-		components: {QuickLinks, PageNavigation},
+		components: {QuickLinksToggleBtn, QuickLinks, PageNavigation},
 		data      : () => ({
 			pages                 : [
 				{
@@ -62,7 +67,12 @@
 				}
 			],
 			showQuickLinksOnMobile: false
-		})
+		}),
+		methods   : {
+			toggleQuickLinks() {
+				this.showQuickLinksOnMobile = !this.showQuickLinksOnMobile;
+			}
+		}
 	}
 </script>
 
