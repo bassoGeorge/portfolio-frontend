@@ -13,7 +13,8 @@ module.exports  = {
 		},
 		resolve: {
 			alias: {
-				'styles': path.resolve(styleRoot, 'partials')
+				'styles': path.resolve(styleRoot, 'partials'),
+				'assets': path.resolve(appRoot, 'assets')
 			}
 		},
 		plugins: [
@@ -53,6 +54,16 @@ module.exports  = {
 			name: 'img/[name].[has:8].ext'
 		})
 		.end()
+		.end()
+
+		config.module
+		.rule('docs')
+		.test(/\.pdf$/)
+		.use('file-loader')
+		.loader('file-loader')
+		.options({
+			name: 'assets/docs/[name].[ext]'
+		})
 		.end()
 
 

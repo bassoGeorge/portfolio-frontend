@@ -6,43 +6,60 @@
 						:pages="pages"
 						:mobile-quick-links-mode="showQuickLinksOnMobile"/>
 
+		<quick-links :quick-links="quickLinks"/>
+
 	</nav>
 </template>
 <script>
 	import {ROUTES} from '../../constants'
 	import PageNavigation from './PageNavigation'
+	import QuickLinks from './QuickLinks'
 
 	export default {
 		name      : 'app-navigation',
-		components: {PageNavigation},
+		components: {QuickLinks, PageNavigation},
 		data      : () => ({
 			pages                 : [
 				{
 					...ROUTES.HOME,
 					exact: true,
 					title: "Home",
-					icon : require('../../../../assets/home.svg?inline')
+					icon : require('assets/icons/home.svg?inline')
 				},
 				{
 					...ROUTES.ABOUT,
 					title: "About Me",
-					icon : require('../../../../assets/about.svg?inline')
+					icon : require('assets/icons/about.svg?inline')
 				},
 				{
 					...ROUTES.WORK,
 					title: "My Work",
-					icon : require('../../../../assets/work.svg?inline')
+					icon : require('assets/icons/work.svg?inline')
 				},
 				{
 					...ROUTES.SKILLS,
 					title: "Skills",
-					icon : require('../../../../assets/skills.svg?inline')
+					icon : require('assets/icons/skills.svg?inline')
 				},
 				{
 					...ROUTES.CONTACT,
 					title: "Contact Me",
-					icon : require('../../../../assets/contact.svg?inline')
+					icon : require('assets/icons/contact.svg?inline')
 				},
+			],
+			quickLinks            : [
+				{
+					name : 'github',
+					title: "GitHub",
+					path : 'https://github.com/bassoGeorge',
+					icon : require('assets/icons/github.svg?inline')
+				},
+				{
+					name : 'resume',
+					title: "Resume",
+					path : require('assets/docs/Anish_George_SoftwareDeveloper_Resume.pdf'),
+					icon : require('assets/icons/resume.svg?inline')
+				}
 			],
 			showQuickLinksOnMobile: false
 		})
@@ -68,40 +85,6 @@
 
 		+on-desktop-up()
 			padding: 0 5rem
-
-	// Quick Links list
-	.navigation--quick-links
-		display: none
-		+on-desktop-up()
-			display: block
-
-		li
-			margin-left: 0
-			padding: 0 1em
-			position: relative
-		li:
-		:after
-			$height = 50%
-			content: ''
-			display: block
-			height: $height
-			width: 2px
-			background-color: white
-			position: absolute
-			right: 0
-			top: ((100% - $height) / 2)
-		li:first-child
-			padding-left: 0
-		li:last-child
-			padding-right: 0
-		li:last-child::after
-			display: none
-
-		a
-			transition: color 300ms ease-in-out
-			.icon
-				display: flex
-				justify-content: center
 
 	// In  mobile, navigation is toggled
 	.navigation--quick-links-on
