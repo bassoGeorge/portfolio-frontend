@@ -1,9 +1,8 @@
 <template>
-	<ul class="navigation--quick-links horizontal-flat-list">
-		<li v-for="link in quickLinks">
+	<ul class="nav__quick-links horizontal-flat-list">
+		<li v-for="link in links" :key="link.name">
 			<a target="_blank" :href="link.path"
-			   class="
-                svg-color-lighter
+			   class="svg-color-lighter
                 svg-color-primary-on-hover
                 svg-color-primary-on-active
                 fg-lighter
@@ -11,7 +10,7 @@
                 fg-primary-on-active
                 ">
 				<svg-icon :svg="link.icon"/>
-				<span>{{link.name}}</span>
+				<span>{{link.title}}</span>
 			</a>
 		</li>
 	</ul>
@@ -23,7 +22,7 @@
 		name      : 'quick-links',
 		components: {SvgIcon},
 		props     : {
-			quickLinks: {}
+			links: {}
 		}
 	}
 </script>
@@ -31,7 +30,7 @@
 	@require "~styles/_utils"
 
 	// Quick Links list
-	.navigation--quick-links
+	.nav__quick-links
 		display: none
 		+on-desktop-up()
 			display: block

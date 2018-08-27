@@ -4,7 +4,7 @@
 
 <script>
 	export default {
-		name: "AboutMePage"
+		name: "AboutPage"
 	}
 </script>
 

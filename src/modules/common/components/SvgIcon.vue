@@ -1,5 +1,5 @@
 <template>
-	<i class="icon" v-html="svg"></i>
+	<i class="icon svg-icon" v-html="svg"></i>
 </template>
 <script>
 	export default {
@@ -7,7 +7,7 @@
 		props: ['svg']
 	}
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 	.icon
 		display: block;
 </style>

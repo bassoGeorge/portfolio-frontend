@@ -1,7 +1,7 @@
 <template>
-	<li class="navigation--quick-links-toggle-btn">
+	<li class="nav__quick-links-toggle-btn">
 		<button
-						@click="$emit('click')"
+						@click="$emit('toggle')"
 						class="
                 svg-color-lighter
                 svg-color-primary-on-hover
@@ -9,9 +9,7 @@
                 "
 		>
 
-			<svg-icon v-if="!isToggledOn" :svg="menu_icon"/>
-			<svg-icon v-if="isToggledOn" :svg="close_icon"/>
-
+			<svg-icon :svg="currentIcon"/>
 		</button>
 	</li>
 
@@ -29,14 +27,19 @@
 		data      : () => ({
 			menu_icon : require('../../../../assets/icons/menu.svg?inline'),
 			close_icon: require('../../../../assets/icons/close.svg?inline')
-		})
+		}),
+		computed  : {
+			currentIcon() {
+				return this.isToggledOn ? this.close_icon : this.menu_icon;
+			}
+		}
 	}
 </script>
 
 <style lang="stylus" scoped>
 	@require "~styles/_utils"
 
-	.navigation--quick-links-toggle-btn
+	.nav__quick-links-toggle-btn
 		display: flex
 		align-items: center
 

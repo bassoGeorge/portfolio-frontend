@@ -1,10 +1,10 @@
 import {expect} from 'chai'
 import {shallowMount} from '@vue/test-utils'
-import AboutMePage from '../../../src/modules/about/AboutPage'
+import AboutPage from '../../../src/modules/about/AboutPage'
 
-describe('AboutMePage.vue', () => {
+describe('[about] AboutPage', () => {
 	it('renders About Me page message', () => {
-		const wrapper = shallowMount(AboutMePage, {
+		const wrapper = shallowMount(AboutPage, {
 			propsData: {}
 		})
 		expect(wrapper.text()).to.include("I'm pretty cool you know!!")

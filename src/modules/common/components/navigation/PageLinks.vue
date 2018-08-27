@@ -1,9 +1,9 @@
 <template>
-	<ul class="navigation--pages horizontal-flat-list"
-	    :class="{'navigation--quick-links-on': mobileQuickLinksMode}"
+	<ul class="nav__pages horizontal-flat-list"
+	    :class="{'nav--quick-links-on': mobileQuickLinksMode}"
 	>
 		<li v-for="page in pages"
-		    class="navigation--pages--item"
+		    class="nav__pages__item"
 		    :key="page.name">
 
 			<router-link
@@ -26,7 +26,7 @@
 	import SvgIcon from '../SvgIcon'
 
 	export default {
-		name      : 'page-navigation',
+		name      : 'page-links',
 		components: {SvgIcon},
 		props     : {
 			pages               : {},
@@ -37,7 +37,7 @@
 <style lang="stylus" scoped>
 	@require "~styles/_utils"
 
-	.navigation--pages
+	.nav__pages
 		display: flex
 		flex-grow: 1
 		justify-content: space-between
@@ -47,7 +47,7 @@
 		li
 			margin-left: 0
 
-		li.navigation--pages--item
+		li.nav__pages__item
 			overflow: hidden
 
 			&:first-child a
@@ -80,10 +80,10 @@
 					width: 8em
 
 	// In  mobile, navigation is toggled
-	.navigation--pages.navigation--quick-links-on
+	.nav__pages.nav--quick-links-on
 		order: 1 // The navigation pages list now just has the cross icon and it should move to the right
 		flex-grow: 0
-		li.navigation--pages--item
+		li.nav__pages__item
 			display: none
 			+on-desktop-up()
 				display: initial

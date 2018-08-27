@@ -1,28 +1,30 @@
 <template>
-	<nav class="bg-light"
-	     :class="{'navigation--quick-links-on': showQuickLinksOnMobile}">
+	<nav class="bg-light nav"
+	     :class="{'nav--quick-links-on': showQuickLinksOnMobile}">
 
-		<page-navigation
+		<page-links
 						:pages="pages"
 						:mobile-quick-links-mode="showQuickLinksOnMobile">
 
-			<quick-links-toggle-btn :is-toggled-on="showQuickLinksOnMobile" @click="toggleQuickLinks"/>
+			<quick-links-toggle-btn
+							:is-toggled-on="showQuickLinksOnMobile"
+							@toggle="toggleQuickLinks"/>
 
-		</page-navigation>
+		</page-links>
 
-		<quick-links :quick-links="quickLinks"/>
+		<quick-links :links="quickLinks"/>
 
 	</nav>
 </template>
 <script>
 	import {ROUTES} from '../../constants'
-	import PageNavigation from './PageNavigation'
+	import PageLinks from './PageLinks'
 	import QuickLinks from './QuickLinks'
 	import QuickLinksToggleBtn from './QuickLinksToggleBtn'
 
 	export default {
 		name      : 'app-navigation',
-		components: {QuickLinksToggleBtn, QuickLinks, PageNavigation},
+		components: {QuickLinksToggleBtn, QuickLinks, PageLinks},
 		data      : () => ({
 			pages                 : [
 				{
@@ -80,7 +82,7 @@
 <style lang="stylus" scoped>
 	@require "~styles/_utils"
 
-	nav
+	.nav
 		position: fixed
 		bottom: 0
 		left: 0
@@ -97,11 +99,11 @@
 			padding: 0 5rem
 
 	// In  mobile, navigation is toggled
-	.navigation--quick-links-on
-		.navigation--quick-links
+	.nav--quick-links-on
+		.nav__quick-links
 			display: block
 
-	.navigation--quick-links-toggle-btn
+	.nav__quick-links-toggle-btn
 		display: flex
 		align-items: center
 
@@ -124,7 +126,7 @@
 	// TODO: need to get this leaky styling out
 	@require "~styles/_utils"
 
-	nav
+	.nav
 		.icon
 			height: 1.2em
 

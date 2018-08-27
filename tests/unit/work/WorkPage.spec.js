@@ -2,7 +2,7 @@ import {expect} from 'chai'
 import {shallowMount} from '@vue/test-utils'
 import WorkPage from '../../../src/modules/work/WorkPage'
 
-describe('WorkPage.vue', () => {
+describe('[work] WorkPage', () => {
 	it('renders Work page message', () => {
 		const wrapper = shallowMount(WorkPage, {
 			propsData: {}

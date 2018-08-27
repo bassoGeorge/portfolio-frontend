@@ -2,7 +2,7 @@ import {expect} from 'chai'
 import {shallowMount} from '@vue/test-utils'
 import HomePage from '../../../src/modules/home/HomePage'
 
-describe('HomePage.vue', () => {
+describe('[home] HomePage', () => {
 	it('renders Home page message', () => {
 		const wrapper = shallowMount(HomePage, {
 			propsData: {}
