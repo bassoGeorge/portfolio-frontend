@@ -10,6 +10,7 @@
 							:id="`page-nav-link-${page.name}`"
 							:to="page.path"
 							:exact="page.exact"
+							:data-testid="`page-nav-link-${page.name}`"
 							class="svg-color-lighter svg-color-primary-on-hover"
 							active-class="page-link-active svg-active-acc">
 

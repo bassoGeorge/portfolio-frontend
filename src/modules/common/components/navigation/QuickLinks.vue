@@ -2,6 +2,7 @@
 	<ul class="nav__quick-links horizontal-flat-list">
 		<li v-for="link in links" :key="link.name">
 			<a target="_blank" :href="link.path"
+			   :data-testid="`quick-link-${link.name}`"
 			   class="svg-color-lighter
                 svg-color-primary-on-hover
                 svg-color-primary-on-active

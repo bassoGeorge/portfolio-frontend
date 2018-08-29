@@ -2,6 +2,7 @@
 	<li class="nav__quick-links-toggle-btn">
 		<button
 						@click="$emit('toggle')"
+						data-testid="quick-links-toggle-button"
 						class="
                 svg-color-lighter
                 svg-color-primary-on-hover
