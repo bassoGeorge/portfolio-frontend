@@ -1,5 +1,6 @@
 <template>
-	<ul class="nav__quick-links horizontal-flat-list">
+	<ul class="nav__quick-links horizontal-flat-list"
+	    data-testid="quick-links">
 		<li v-for="link in links" :key="link.name">
 			<a target="_blank" :href="link.path"
 			   :data-testid="`quick-link-${link.name}`"

@@ -66,8 +66,48 @@ describe("Navigation", () => {
 				const resumeLink = $el.attr('href')
 				cy.request(resumeLink).its('status').should('equal', 200)
 			})
+		})
 
+	})
+
+	describe("Responsive navigation", () => {
+		it("should show all navs in desktop and no toggle button", () => {
+			cy.viewport('macbook-15')
+
+			cy
+			.get('[data-testid=quick-links-toggle-button]')
+			.should('not.be.visible')
+
+			cy
+			.get('[data-testid=quick-links]')
+			.should('be.visible')
+
+			cy
+			.get('[data-testid=page-links]')
+			.should('be.visible')
 
 		})
+
+		it("should hide quick-links on mobile and give toggle functionality", () => {
+			cy.viewport('iphone-6')
+
+			cy
+			.get('[data-testid=quick-links]')
+			.should('not.be.visible')
+			.get('[data-testid=page-nav-link-home]')
+			.should('be.visible')
+			.get('[data-testid=quick-links-toggle-button]')
+			.should('be.visible')
+			.click()
+			.get('[data-testid=quick-links]')
+			.should('be.visible')
+			.get('[data-testid=page-nav-link-home]')
+			.should('not.be.visible')
+			.get('[data-testid=quick-links-toggle-button]')
+			.click()
+			.get('[data-testid=page-nav-link-home]')
+			.should('be.visible')
+		})
+
 	})
 })

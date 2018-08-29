@@ -1,5 +1,6 @@
 <template>
 	<ul class="nav__pages horizontal-flat-list"
+	    data-testid="page-links"
 	    :class="{'nav--quick-links-on': mobileQuickLinksMode}"
 	>
 		<li v-for="page in pages"
