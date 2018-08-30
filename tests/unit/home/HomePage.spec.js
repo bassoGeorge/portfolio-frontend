@@ -2,11 +2,25 @@ import {expect} from 'chai'
 import {shallowMount} from '@vue/test-utils'
 import HomePage from '../../../src/modules/home/HomePage'
 
-describe('[home] HomePage', () => {
-	it('renders Home page message', () => {
+describe("[home] HomePage", () => {
+	it("renders Home page messages", () => {
 		const wrapper = shallowMount(HomePage, {
 			propsData: {}
 		})
-		expect(wrapper.text()).to.include('Hi, this is Anish George')
+
+		const messages = [
+			"Hi, I'm Anish",
+			"full stack developer",
+			"Web Dev",
+			"Vue",
+			"React",
+			"Angular",
+			"CSS Ninja"
+		]
+
+		messages.forEach(msg =>
+			expect(wrapper.text()).to.include(msg)
+		)
 	})
+
 })
