@@ -7,6 +7,6 @@ describe('[contact] ContactPage', () => {
 		const wrapper = shallowMount(ContactPage, {
 			propsData: {}
 		})
-		expect(wrapper.text()).to.include('Contact Page')
+		expect(wrapper.text()).to.include('CONTACT ME')
 	})
 })
