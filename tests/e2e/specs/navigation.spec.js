@@ -1,5 +1,3 @@
-import {fullUrl} from '../support/utils'
-
 describe("Navigation", () => {
 	describe("Navigation between the main pages of the app using the Navigation Bar", () => {
 
@@ -10,35 +8,35 @@ describe("Navigation", () => {
 		it("should visit About Me page when clicked on the about me page linke", () => {
 			cy
 			.get('[data-testid=page-nav-link-home]').click()
-			.url().should('be.equal', fullUrl('/'))
+			.location('pathname').should('equal', '/')
 			.get('[data-testid=page-nav-link-home]').should('have.class', 'page-link-active')
 		})
 
 		it("should visit About Me page when clicked on the about me page linke", () => {
 			cy
 			.get('[data-testid=page-nav-link-about]').click()
-			.url().should('be.equal', fullUrl('/about-me'))
+			.location('pathname').should('equal', '/about-me')
 			.get('[data-testid=page-nav-link-about]').should('have.class', 'page-link-active')
 		})
 
 		it("should visit Work page when clicked on the about me page linke", () => {
 			cy
 			.get('[data-testid=page-nav-link-work]').click()
-			.url().should('be.equal', fullUrl('/my-work'))
+			.location('pathname').should('equal', '/my-work')
 			.get('[data-testid=page-nav-link-work]').should('have.class', 'page-link-active')
 		})
 
 		it("should visit Skills page when clicked on the about me page linke", () => {
 			cy
 			.get('[data-testid=page-nav-link-skills]').click()
-			.url().should('be.equal', fullUrl('/skills'))
+			.location('pathname').should('equal', '/skills')
 			.get('[data-testid=page-nav-link-skills]').should('have.class', 'page-link-active')
 		})
 
 		it("should visit Contact Me page when clicked on the about me page linke", () => {
 			cy
 			.get('[data-testid=page-nav-link-contact]').click()
-			.url().should('be.equal', fullUrl('/contact-me'))
+			.location('pathname').should('equal', '/contact-me')
 			.get('[data-testid=page-nav-link-contact]').should('have.class', 'page-link-active')
 		})
 
