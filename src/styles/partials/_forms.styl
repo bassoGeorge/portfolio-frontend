@@ -24,8 +24,11 @@ form
       border-top-right-radius: 2px
       border-bottom-right-radius: 2px
 
-  div[role='group'] > *
-    flex: 1
+  div[role='group']
+    // Not using the * selector as Grammarly and other helpers can add elements inside group
+    & > input,
+    & > textarea
+      flex: 1
 
 input,
 textarea

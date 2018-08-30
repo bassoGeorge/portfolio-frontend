@@ -13,8 +13,16 @@
 
 	export default {
 		name      : "ContactMePage",
-		components: {ContactForm},
-		data      : () => ({})
+		components: {ContactForm}
 	}
 </script>
 
+<style lang="stylus" scoped>
+	@require "~styles/_utils"
+
+	main
+		width: 100%
+		+on-tablet-landscape-up()
+			width: auto;
+			min-width: 55rem
+</style>

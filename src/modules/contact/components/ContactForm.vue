@@ -23,20 +23,16 @@
 	</section>
 </template>
 <script>
-	import {mapActions, mapGetters, mapMutations, mapState} from 'vuex'
+	import {mapGetters, mapState} from 'vuex'
 
 	export default {
 		name    : 'contact-form',
 		methods : {
-			...mapActions('contact', {
-				updateField: 'updateField',
-			}),
-			...mapMutations('contact', ['resetForm', 'touchField']),
 			updateInput(e) {
-				this.updateField({field: e.target.name, value: e.target.value})
+				this.$store.dispatch('contact/updateField', {field: e.target.name, value: e.target.value})
 			},
 			touchInput(e) {
-				this.touchField(e.target.name)
+				this.$store.commit('contact/touchField', e.target.name)
 			},
 			getErrorClasses(field) {
 				return {
@@ -47,13 +43,17 @@
 		},
 		computed: {
 			...mapState('contact', ['name', 'email', 'subject', 'body']),
-
 			...mapGetters('contact', {
 				isFormValid: 'isValid'
 			})
 		},
 		beforeDestroy() {
-			this.resetForm()
+			this.$store.commit('contact/resetForm')
 		}
 	}
 </script>
+
+<style lang="stylus" scoped>
+	section
+		width: 100%
+</style>
