@@ -3,7 +3,7 @@ import {shallowMount} from '@vue/test-utils'
 import AboutPage from '../../../src/modules/about/AboutPage'
 
 describe('[about] AboutPage', () => {
-	it('renders About Me page message', () => {
+	it('should render ABOUT ME heading', () => {
 		const wrapper = shallowMount(AboutPage, {
 			propsData: {}
 		})

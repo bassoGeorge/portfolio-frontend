@@ -3,7 +3,7 @@ import {shallowMount} from '@vue/test-utils'
 import ContactPage from '../../../src/modules/contact/ContactPage'
 
 describe('[contact] ContactPage', () => {
-	it('renders Contact page message', () => {
+	it('should render CONTACT ME heading', () => {
 		const wrapper = shallowMount(ContactPage, {
 			propsData: {}
 		})

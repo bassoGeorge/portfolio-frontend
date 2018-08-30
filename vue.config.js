@@ -38,6 +38,8 @@ module.exports  = {
 		config.module.rules.delete('sass')
 		config.module.rules.delete('scss')
 
+		// TODO: add istanbul-instrument-loader
+
 		config.module
 		.rule('svg')
 		.test(/\.svg$/)
