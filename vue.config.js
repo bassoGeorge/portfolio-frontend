@@ -1,11 +1,11 @@
 let HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
-let MiniCssExtractPlugin           = require('mini-css-extract-plugin')
 let path                           = require('path');
+var isCoverage                     = process.env.NODE_ENV === 'coverage';
 
 const appRoot   = './src',
       styleRoot = `${appRoot}/styles`
 
-module.exports  = {
+module.exports = {
 	configureWebpack: {
 		entry  : {
 			dark_theme : `${styleRoot}/dark.theme.styl`,
@@ -38,7 +38,15 @@ module.exports  = {
 		config.module.rules.delete('sass')
 		config.module.rules.delete('scss')
 
-		// TODO: add istanbul-instrument-loader
+		if (isCoverage) {
+			config.externals(require('webpack-node-externals')())
+
+			config.module.rule('js')
+			.use('istanbul')
+			.loader('istanbul-instrumenter-loader')
+			.options({esModules: true})
+			.before('cache-loader')
+		}
 
 		config.module
 		.rule('svg')

@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/coverage
+.nyc_output
 /misc/webpack-config.js
 
 /tests/e2e/videos/
