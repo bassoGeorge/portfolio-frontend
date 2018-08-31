@@ -1,12 +1,7 @@
 import {mutations} from './mutations'
 import {defaultState} from './default-state'
 import {actions} from './actions'
-
-export const getters = {
-	isValid() {
-		return true;
-	}
-}
+import {getters} from './getters'
 
 export const contactStore = {
 	namespaced: true,

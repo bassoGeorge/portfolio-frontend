@@ -17,8 +17,8 @@
 			</div>
 		</form>
 		<div class="at-ends-container">
-			<button class="button">Connect with me</button>
-			<button class="button" :disabled="!isFormValid">SEND</button>
+			<button class="button" data-testid="connect-with-me-button">Connect with me</button>
+			<button class="button" :disabled="!isFormValid" data-testid="contact-submit-button">SEND</button>
 		</div>
 	</section>
 </template>
