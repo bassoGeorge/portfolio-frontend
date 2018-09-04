@@ -32,6 +32,19 @@ button
   font-size: 2.2rem
   transition: all 300ms ease-in-out
 
+.big-link
+  padding: 5px 0
+  font-size: 2.2rem
+  text-decoration: none
+  &.big-link--with-icon-right
+    padding: 0
+    display: flex
+    align-items: center
+    justify-content space-between
+    .icon
+      margin-left: 10px
+      width: 3.5rem
+
 ul.horizontal-flat-list
   list-style-type: none
   padding-left: 0
@@ -73,3 +86,13 @@ svg
   display: none
   +on-tablet-landscape-up()
     display: initial
+
+.show-on-above-desktop
+  display: none
+  +on-desktop-up()
+    display: initial
+
+input,
+textarea
+  &:focus
+    outline: none

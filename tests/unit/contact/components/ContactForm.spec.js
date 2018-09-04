@@ -68,6 +68,7 @@ describe("[contact:components] ContactForm", () => {
 		expect(node.find('form').findAll('[role=group]').length).to.equal(3)
 		expect(node.find('[data-testid=contact-submit-button]').text()).to.equal('SEND')
 		expect(node.find('[data-testid=connect-with-me-button]').text()).to.equal('Connect with me')
+		expect(node.find('[data-testid=connect-with-me-button] > img.icon').exists()).to.be.true
 		expect(node.find('form').find('input[name=name]').exists()).to.be.true
 		expect(node.find('form').find('input[name=subject]').exists()).to.be.true
 		expect(node.find('form').find('input[name=email]').exists()).to.be.true

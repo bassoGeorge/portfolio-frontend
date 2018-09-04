@@ -17,7 +17,7 @@
 	</nav>
 </template>
 <script>
-	import {ROUTES} from '../../constants'
+	import {EXTERNAL_LINKS, ROUTES} from '../../constants'
 	import PageLinks from './PageLinks'
 	import QuickLinks from './QuickLinks'
 	import QuickLinksToggleBtn from './QuickLinksToggleBtn'
@@ -58,7 +58,7 @@
 				{
 					name : 'github',
 					title: "GitHub",
-					path : 'https://github.com/bassoGeorge',
+					path : EXTERNAL_LINKS.GitHub,
 					icon : require('assets/icons/github.svg?inline')
 				},
 				{

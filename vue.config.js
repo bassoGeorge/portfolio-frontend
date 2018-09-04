@@ -58,11 +58,11 @@ module.exports = {
 		.end()
 		.end()
 		.oneOf('external')
-		.use('file-loader')
-		.loader('file-loader')
-		.options({
-			name: 'img/[name].[has:8].ext'
-		})
+		.use('url-loader')
+		.loader('url-loader')
+		//.options({
+		//	name: 'img/[name].[has:8].ext'
+		//})
 		.end()
 		.end()
 

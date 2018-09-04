@@ -3,10 +3,15 @@ import {shallowMount} from '@vue/test-utils'
 import AboutPage from '../../../src/modules/about/AboutPage'
 
 describe('[about] AboutPage', () => {
-	it('should render ABOUT ME heading', () => {
-		const wrapper = shallowMount(AboutPage, {
-			propsData: {}
-		})
-		expect(wrapper.text()).to.include("ABOUT ME")
+	const node = shallowMount(AboutPage, {
+		propsData: {}
+	})
+
+	it('should render the layout correctly', () => {
+		expect(node.find('main').exists()).to.be.true
+		expect(node.find('[data-testid=title]').text()).to.equal("ABOUT ME")
+
+		expect(node.find('aside').exists()).to.be.true
+		expect(node.find('aside img').exists()).to.be.true
 	})
 })

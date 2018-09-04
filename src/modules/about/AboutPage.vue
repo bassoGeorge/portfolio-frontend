@@ -2,7 +2,7 @@
 	<div class="centered-container page">
 		<main>
 			<article>
-				<h2 class="title-font">ABOUT ME</h2>
+				<h2 data-testid='title' class="title-font">ABOUT ME</h2>
 				<p>
 					Full-stack or Front-end web developer, primarily focused on building Hybrid web applications using the latest
 					technologies.
@@ -20,7 +20,7 @@
 			</article>
 		</main>
 		<aside class="show-on-above-tablet-landscape">
-			<img src="~assets/images/about_me.png" alt="Me with my laptop and coffee">
+			<img src="~assets/images/cross_legged_with_coffee.png" alt="Me with my laptop and coffee">
 		</aside>
 	</div>
 </template>

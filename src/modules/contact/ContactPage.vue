@@ -1,10 +1,12 @@
 <template>
 	<div class="centered-container page">
 		<main>
-			<h2 class="title-font">CONTACT ME</h2>
+			<h2 data-testid="title" class="title-font">CONTACT ME</h2>
 			<contact-form/>
-
 		</main>
+		<aside class="show-on-above-desktop">
+			<img src="~assets/images/behind_mac.png" alt="Me behind my mac">
+		</aside>
 	</div>
 </template>
 
