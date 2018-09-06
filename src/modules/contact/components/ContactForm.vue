@@ -20,11 +20,12 @@
 			<a :href="linkedInUrl"
 			   target="_blank"
 			   class="big-link big-link--with-icon-right"
-			   data-testid="connect-with-me-button">
+			   data-testid="connect-with-me-button"
+			   tabindex="6">
 				Connect with me
-				<img class="icon" src="~assets/icons/linkedIn.svg" alt="">
+				<img class="icon" src="~assets/icons/linkedIn.svg" alt="LinkedIn logo">
 			</a>
-			<button class="button" :disabled="!isFormValid" data-testid="contact-submit-button">SEND</button>
+			<button class="button" :disabled="!isFormValid" data-testid="contact-submit-button" tabindex="5">SEND</button>
 		</div>
 	</section>
 </template>

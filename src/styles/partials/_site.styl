@@ -36,6 +36,9 @@ button
   padding: 5px 0
   font-size: 2.2rem
   text-decoration: none
+  position: relative
+  &:focus
+    outline: none
   &.big-link--with-icon-right
     padding: 0
     display: flex
@@ -44,6 +47,20 @@ button
     .icon
       margin-left: 10px
       width: 3.5rem
+  &::after
+    content: ""
+    transition: transform 300ms ease-out
+    width: 100%
+    transform-origin: center
+    transform: scaleX(0)
+    height: 2px
+    position: absolute
+    left: 0
+    bottom: -1rem
+  &:hover,
+  &:focus
+    &::after
+      transform: scaleX(1)
 
 ul.horizontal-flat-list
   list-style-type: none
