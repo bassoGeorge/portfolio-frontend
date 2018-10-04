@@ -12,28 +12,28 @@ describe("Navigation", () => {
 			.get('[data-testid=page-nav-link-home]').should('have.class', 'page-link-active')
 		})
 
-		it("should visit About Me page when clicked on the about me page linke", () => {
+		it("should visit About Me page when clicked on the about me page link", () => {
 			cy
 			.get('[data-testid=page-nav-link-about]').click()
 			.location('pathname').should('equal', '/about-me')
 			.get('[data-testid=page-nav-link-about]').should('have.class', 'page-link-active')
 		})
 
-		it("should visit Work page when clicked on the about me page linke", () => {
+		it("should visit Work page when clicked on the about me page link", () => {
 			cy
 			.get('[data-testid=page-nav-link-work]').click()
 			.location('pathname').should('equal', '/my-work')
 			.get('[data-testid=page-nav-link-work]').should('have.class', 'page-link-active')
 		})
 
-		it("should visit Skills page when clicked on the about me page linke", () => {
+		it("should visit Skills page when clicked on the about me page link", () => {
 			cy
 			.get('[data-testid=page-nav-link-skills]').click()
 			.location('pathname').should('equal', '/skills')
 			.get('[data-testid=page-nav-link-skills]').should('have.class', 'page-link-active')
 		})
 
-		it("should visit Contact Me page when clicked on the about me page linke", () => {
+		it("should visit Contact Me page when clicked on the about me page link", () => {
 			cy
 			.get('[data-testid=page-nav-link-contact]').click()
 			.location('pathname').should('equal', '/contact-me')
